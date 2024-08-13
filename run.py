@@ -33,6 +33,8 @@ def set_ship(ship_length):
         direction = random.randrange(2)
         all_valid = True
         if direction == 0:
+            if x_coordinate + ship_length >= game_size:
+                continue
             for x in range(ship_length):
                 if battlefield_copy[y_coordinate][x_coordinate + x] != "#":
                     all_valid = False
