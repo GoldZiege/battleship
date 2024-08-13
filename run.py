@@ -43,6 +43,17 @@ def set_ship(ship_length):
                 for z in range(ship_length):
                     battlefield_copy[y_coordinate][x_coordinate + z] = "X"
                 ship_setting = False
+        if direction == 1:
+            if y_coordinate + ship_length >= game_size:
+                continue
+            for x in range(ship_length):
+                if battlefield_copy[y_coordinate + x][x_coordinate] != "#":
+                    all_valid = False
+                    break
+            if all_valid == True:
+                for z in range(ship_length):
+                    battlefield_copy[y_coordinate + z][x_coordinate] = "X"
+                ship_setting = False
 
 
 
