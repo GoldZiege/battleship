@@ -5,6 +5,8 @@ battlefield_copy = []
 game_size = 7
 
 def create_battlefield(length):
+    global battlefield
+    global battlefield_copy
     for x in range(length):
         add_list = []
         if x == 0:
@@ -17,12 +19,13 @@ def create_battlefield(length):
                 add_list.append("#")
         battlefield.append(add_list)
 
-    battlefield_copy = battlefield
+    battlefield_copy = battlefield.copy()
 
     for item in battlefield:
         print(*item)
 
 def set_ship(ship_length):
+    global battlefield_copy
     ship_setting = True
     while ship_setting == True:
         x_coordinate = random.randrange(game_size - 1) + 1
@@ -43,8 +46,9 @@ def set_ship(ship_length):
 
 def main():
     create_battlefield(game_size)
-    set_ship(1)
+    set_ship(2)
     for item in battlefield_copy:
         print(*item)
 
 main()
+print(random.randrange(2))
