@@ -1,4 +1,5 @@
 import random
+from copy import deepcopy
 
 battlefield = []
 battlefield_copy = []
@@ -19,7 +20,7 @@ def create_battlefield(length):
                 add_list.append("#")
         battlefield.append(add_list)
 
-    battlefield_copy = battlefield.copy()
+    battlefield_copy = deepcopy(battlefield)
 
     for item in battlefield:
         print(*item)
@@ -79,7 +80,7 @@ def main():
     set_ship(3)
     set_ship(4)
     set_ship(2)
-    for item in battlefield:
+    for item in battlefield_copy:
         print(*item)
     player_turn()
 main()
