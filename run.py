@@ -55,13 +55,16 @@ def set_ship(ship_length):
                     battlefield_copy[y_coordinate + z][x_coordinate] = "X"
                 ship_setting = False
 
-
+def player_turn():
+    player_input = [*input("Enter your target coordinates:\n")]
+    print(player_input)
 
 def main():
     create_battlefield(game_size)
+    set_ship(3)
+    set_ship(4)
     set_ship(2)
     for item in battlefield_copy:
         print(*item)
-
+    player_turn()
 main()
-print(random.randrange(2))
