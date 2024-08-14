@@ -58,13 +58,28 @@ def set_ship(ship_length):
 def player_turn():
     player_input = [*input("Enter your target coordinates:\n")]
     print(player_input)
+    check_for_hit(player_input)
+    for item in battlefield:
+        print(*item)
+
+def check_for_hit(target):
+    global battlefield
+    x_coordinate = ord(target[0]) - 64
+    y_coordinate = int(target[1])
+    print(x_coordinate)
+    if battlefield_copy[y_coordinate][x_coordinate] == "X":
+        print("It's a hit!" )
+        battlefield[y_coordinate][x_coordinate] = "X"
+    else:
+        print("You missed.")
+        battlefield[y_coordinate][x_coordinate] = "O"
 
 def main():
     create_battlefield(game_size)
     set_ship(3)
     set_ship(4)
     set_ship(2)
-    for item in battlefield_copy:
+    for item in battlefield:
         print(*item)
     player_turn()
 main()
