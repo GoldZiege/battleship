@@ -57,11 +57,15 @@ def set_ship(ship_length):
                 ship_setting = False
 
 def player_turn():
-    player_input = [*input("Enter your target coordinates:\n")]
-    print(player_input)
-    check_for_hit(player_input)
-    for item in battlefield:
-        print(*item)
+    turn = 5
+    while turn > 0:
+        print(f"You have {turn} turns left.")
+        player_input = [*input("Enter your target coordinates:\n")]
+        print(player_input)
+        check_for_hit(player_input)
+        for item in battlefield:
+            print(*item)
+        turn -= 1
 
 def check_for_hit(target):
     global battlefield
