@@ -63,8 +63,6 @@ def player_turn():
     while turn > 0:
         print(f"You have {turn} turns left.")
         player_input = [*input("Enter your target coordinates:\n")]
-        print(player_input)
-
         x_coordinate = player_input[0].upper()
         x_coordinate = ord(x_coordinate) - 64
         if x_coordinate < game_size and x_coordinate >= 1:
@@ -93,6 +91,8 @@ def player_turn():
         for item in battlefield:
             print(*item)
         turn -= 1
+    if turn == 0:
+        print("You are out of turns. You lose.")
 
 def main():
     create_battlefield(game_size)
