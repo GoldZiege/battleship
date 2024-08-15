@@ -57,27 +57,42 @@ def set_ship(ship_length):
                 ship_setting = False
 
 def player_turn():
-    turn = 5
+    global battlefield
+    turn = 18
+    hits = 0
     while turn > 0:
         print(f"You have {turn} turns left.")
         player_input = [*input("Enter your target coordinates:\n")]
         print(player_input)
-        check_for_hit(player_input)
+
+        x_coordinate = player_input[0].upper()
+        x_coordinate = ord(x_coordinate) - 64
+        if x_coordinate < game_size and x_coordinate >= 1:
+            try:
+                y_coordinate = int(player_input[1])
+                if y_coordinate < game_size and y_coordinate >= 1:
+                    if battlefield_copy[y_coordinate][x_coordinate] == "X":
+                        print("It's a hit!" )
+                        battlefield[y_coordinate][x_coordinate] = "X"
+                        hits += 1
+                        if hits >= 9:
+                            print("Congratulations. You sank all ships!")
+                            break
+                    else:
+                        print("You missed.")
+                        battlefield[y_coordinate][x_coordinate] = "O"
+                else:
+                    print("Please enter valid coordinates (e.g. B2)")
+                    continue
+            except ValueError:
+                print("Please enter valid coordinates (e.g. B2)")
+                continue
+        else:
+            print("Please enter valid coordinates (e.g. B2)")
+            continue
         for item in battlefield:
             print(*item)
         turn -= 1
-
-def check_for_hit(target):
-    global battlefield
-    x_coordinate = ord(target[0]) - 64
-    y_coordinate = int(target[1])
-    print(x_coordinate)
-    if battlefield_copy[y_coordinate][x_coordinate] == "X":
-        print("It's a hit!" )
-        battlefield[y_coordinate][x_coordinate] = "X"
-    else:
-        print("You missed.")
-        battlefield[y_coordinate][x_coordinate] = "O"
 
 def main():
     create_battlefield(game_size)
