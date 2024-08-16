@@ -6,8 +6,14 @@ battlefield_copy = []
 game_size = 7
 
 def create_battlefield(length):
+    """
+    Creates the game grid and gives a welcome message to the player.
+    """
     global battlefield
     global battlefield_copy
+    print("Welcome to Battleship Commander!\n")
+    print("To play enter coordinates in form")
+    print("of a letter and a number (e.g. B2).")
     for x in range(length):
         add_list = []
         if x == 0:
@@ -26,6 +32,9 @@ def create_battlefield(length):
         print(*item)
 
 def set_ship(ship_length):
+    """
+    Sets a ship with the size of ship_length on the game grid.
+    """
     global battlefield_copy
     ship_setting = True
     while ship_setting == True:
@@ -57,11 +66,15 @@ def set_ship(ship_length):
                 ship_setting = False
 
 def player_turn():
+    """
+    Takes in the players coordinates, validates them and
+    checks wether the shot hits or misses.
+    """
     global battlefield
     turn = 18
     hits = 0
     while turn > 0:
-        print(f"You have {turn} turns left.")
+        print(f"You have {turn} shots left.")
         player_input = [*input("Enter your target coordinates:\n")]
         x_coordinate = player_input[0].upper()
         x_coordinate = ord(x_coordinate) - 64
@@ -75,6 +88,7 @@ def player_turn():
                         hits += 1
                         if hits >= 9:
                             print("Congratulations. You sank all ships!")
+                            print("You Win!")
                             break
                     else:
                         print("You missed.")
@@ -92,14 +106,17 @@ def player_turn():
             print(*item)
         turn -= 1
     if turn == 0:
-        print("You are out of turns. You lose.")
+        print("You are out of ammuniton. You lose.")
 
 def main():
+    """
+    Run all programm functions
+    """
     create_battlefield(game_size)
     set_ship(3)
     set_ship(4)
     set_ship(2)
-    for item in battlefield_copy:
-        print(*item)
+    #for item in battlefield_copy:
+    #    print(*item)
     player_turn()
 main()
