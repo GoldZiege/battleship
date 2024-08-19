@@ -1,9 +1,17 @@
 import random
 from copy import deepcopy
+import os
 
 battlefield = []
 battlefield_copy = []
 game_size = 7
+
+# taken from https://www.delftstack.com/howto/python/python-clear-console/
+def clearConsole():
+    command = "clear"
+    if os.name in ("nt", "dos"):  # If Machine is running on Windows, use cls
+        command = "cls"
+    os.system(command)
 
 def create_welcome_screen():
     print("""
@@ -16,7 +24,17 @@ def create_welcome_screen():
                                                  | |    
                                                  |_|   
     """)
+    option = input("Enter 'e' for explanation or 'g' to start the game:\n")
+    if option == "e":
+        clearConsole()
+        explanation()        
+        
+def explanation():
+    print("""
+    Explanation:
 
+    This is explanation text test!
+    """)
 
 def create_battlefield(length):
     """
