@@ -43,7 +43,7 @@ def explanation():
 
     This is explanation text test!
     """)
-    input("Press Enter to go back to start screen.")
+    input("Press Enter to go back to start screen.\n")
 
 def create_battlefield(length):
     """
@@ -108,7 +108,7 @@ def player_turn():
     checks wether the shot hits or misses.
     """
     global battlefield
-    turn = 18
+    turn = 3
     hits = 0
     while turn > 0:
         print(f"You have {turn} shots left.")
@@ -143,6 +143,7 @@ def player_turn():
             else:
                 print("Please enter valid coordinates (e.g. B2)")
                 continue
+            clearConsole()
             for item in battlefield:
                 print(*item)
             turn -= 1
@@ -154,10 +155,23 @@ def main():
     """
     Run all programm functions
     """
+    game_running = True
     create_welcome_screen()
-    create_battlefield(game_size)
-    set_ship(3)
-    set_ship(4)
-    set_ship(2)
-    player_turn()
+    while game_running:
+        create_battlefield(game_size)
+        set_ship(3)
+        set_ship(4)
+        set_ship(2)
+        player_turn()
+        while True:
+            option = input("Enter 'g' to start new game or 'e' to exit:")
+            if option == "g":
+                clearConsole()
+                break
+            elif option == "e":
+                game_running = False
+                break
+            else:
+                print("please enter either 'g' or 'e'")
+
 main()
