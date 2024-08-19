@@ -86,35 +86,40 @@ def player_turn():
     while turn > 0:
         print(f"You have {turn} shots left.")
         player_input = [*input("Enter your target coordinates:\n")]
-        x_coordinate = player_input[0].upper()
-        x_coordinate = ord(x_coordinate) - 64
-        if x_coordinate < game_size and x_coordinate >= 1:
-            try:
-                y_coordinate = int(player_input[1])
-                if y_coordinate < game_size and y_coordinate >= 1:
-                    if battlefield_copy[y_coordinate][x_coordinate] == "X":
-                        print("It's a hit!" )
-                        battlefield[y_coordinate][x_coordinate] = "X"
-                        hits += 1
-                        if hits >= 9:
-                            print("Congratulations. You sank all ships!")
-                            print("You Win!")
-                            break
-                    else:
-                        print("You missed.")
-                        battlefield[y_coordinate][x_coordinate] = "O"
-                else:
-                    print("Please enter valid coordinates (e.g. B2)")
-                    continue
-            except ValueError:
-                print("Please enter valid coordinates (e.g. B2)")
-                continue
-        else:
+        if not player_input or len(player_input) > 2:
             print("Please enter valid coordinates (e.g. B2)")
             continue
-        for item in battlefield:
-            print(*item)
-        turn -= 1
+        else:
+            x_coordinate = player_input[0].upper()
+            x_coordinate = ord(x_coordinate) - 64
+            if x_coordinate < game_size and x_coordinate >= 1:
+                try:
+                    y_coordinate = int(player_input[1])
+                    if y_coordinate < game_size and y_coordinate >= 1:
+                        if battlefield_copy[y_coordinate][x_coordinate] == "X":
+                            print("It's a hit!" )
+                            battlefield[y_coordinate][x_coordinate] = "X"
+                            hits += 1
+                            if hits >= 9:
+                                print("Congratulations. You sank all ships!")
+                                print("You Win!")
+                                break
+                        else:
+                            print("You missed.")
+                            battlefield[y_coordinate][x_coordinate] = "O"
+                    else:
+                        print("Please enter valid coordinates (e.g. B2)")
+                        continue
+                except ValueError:
+                    print("Please enter valid coordinates (e.g. B2)")
+                    continue
+            else:
+                print("Please enter valid coordinates (e.g. B2)")
+                continue
+            for item in battlefield:
+                print(*item)
+            turn -= 1
+
     if turn == 0:
         print("You are out of ammuniton. You lose.")
 
