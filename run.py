@@ -140,6 +140,7 @@ def player_turn():
                     y_coordinate = int(player_input[1])
                     if y_coordinate < game_size and y_coordinate >= 1:
                         if battlefield_copy[y_coordinate][x_coordinate] == "X":
+                            clearConsole()
                             print("It's a hit!" )
                             battlefield[y_coordinate][x_coordinate] = "X"
                             hits += 1
@@ -148,6 +149,7 @@ def player_turn():
                                 print("You Win!")
                                 break
                         else:
+                            clearConsole()
                             print("You missed.")
                             battlefield[y_coordinate][x_coordinate] = "O"
                     else:
@@ -159,7 +161,6 @@ def player_turn():
             else:
                 print("Please enter valid coordinates (e.g. B2)")
                 continue
-            clearConsole()
             for item in battlefield:
                 print(*item)
             turn -= 1
