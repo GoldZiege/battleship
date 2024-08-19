@@ -41,7 +41,18 @@ def explanation():
     print("""
     Explanation:
 
-    This is explanation text test!
+    You are the commander of a battleship and have to destroy the enemy ships.
+    There are three enemy ships with different lengths:
+
+    Battleship with length 4
+    Submarine with length 3
+    Destroyer with length 2
+
+    To fulfill your task you have 18 missiles to shoot at your targets.
+    Simply enter target coordinates in the form of a letter plus a number (e.g. A3).
+
+    Sink all your targets and you win. Run out of ammunition and you lose.
+    Good luck.
     """)
     input("Press Enter to go back to start screen.\n")
 
