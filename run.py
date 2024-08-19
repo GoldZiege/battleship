@@ -5,15 +5,25 @@ battlefield = []
 battlefield_copy = []
 game_size = 7
 
+def create_welcome_screen():
+    print("""
+          ____        _   _   _           _     _       
+         |  _ \      | | | | | |         | |   (_)      
+         | |_) | __ _| |_| |_| | ___  ___| |__  _ _ __  
+         |  _ < / _` | __| __| |/ _ \/ __| '_ \| | '_ \ 
+         | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) |
+         |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/ 
+                                                 | |    
+                                                 |_|   
+    """)
+
+
 def create_battlefield(length):
     """
-    Creates the game grid and gives a welcome message to the player.
+    Creates the game grid.
     """
     global battlefield
     global battlefield_copy
-    print("Welcome to Battleship Commander!\n")
-    print("To play enter coordinates in form")
-    print("of a letter and a number (e.g. B2).")
     for x in range(length):
         add_list = []
         if x == 0:
@@ -112,11 +122,10 @@ def main():
     """
     Run all programm functions
     """
+    create_welcome_screen()
     create_battlefield(game_size)
     set_ship(3)
     set_ship(4)
     set_ship(2)
-    #for item in battlefield_copy:
-    #    print(*item)
     player_turn()
 main()
