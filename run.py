@@ -124,7 +124,7 @@ def player_turn():
     checks wether the shot hits or misses.
     """
     global battlefield
-    turn = 3
+    turn = 18
     hits = 0
     while turn > 0:
         print(f"You have {turn} shots left.")
