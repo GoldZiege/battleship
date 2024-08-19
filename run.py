@@ -14,7 +14,9 @@ def clearConsole():
     os.system(command)
 
 def create_welcome_screen():
-    print("""
+    welcome_screen = True
+    while welcome_screen:
+        print("""
           ____        _   _   _           _     _       
          |  _ \      | | | | | |         | |   (_)      
          | |_) | __ _| |_| |_| | ___  ___| |__  _ _ __  
@@ -23,11 +25,17 @@ def create_welcome_screen():
          |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/ 
                                                  | |    
                                                  |_|   
-    """)
-    option = input("Enter 'e' for explanation or 'g' to start the game:\n")
-    if option == "e":
-        clearConsole()
-        explanation()        
+        """)
+        option = input("Enter 'e' for explanation or 'g' to start the game:\n")
+        if option == "e":
+            clearConsole()
+            explanation()
+            clearConsole()
+        elif option == "g":
+            clearConsole()
+            break
+        else:
+            clearConsole()        
         
 def explanation():
     print("""
@@ -35,6 +43,7 @@ def explanation():
 
     This is explanation text test!
     """)
+    input("Press Enter to go back to start screen.")
 
 def create_battlefield(length):
     """
