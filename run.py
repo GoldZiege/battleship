@@ -8,12 +8,18 @@ game_size = 7
 
 # taken from https://www.delftstack.com/howto/python/python-clear-console/
 def clearConsole():
+    """
+    Clears the screen
+    """
     command = "clear"
     if os.name in ("nt", "dos"):  # If Machine is running on Windows, use cls
         command = "cls"
     os.system(command)
 
 def create_welcome_screen():
+    """
+    Shows the welcome screen
+    """
     welcome_screen = True
     while welcome_screen:
         print("""
@@ -38,6 +44,9 @@ def create_welcome_screen():
             clearConsole()        
         
 def explanation():
+    """
+    Puts explanation text on screen
+    """
     print("""
     Explanation:
 
@@ -90,7 +99,7 @@ def set_ship(ship_length):
     """
     global battlefield_copy
     ship_setting = True
-    while ship_setting == True:
+    while ship_setting:
         x_coordinate = random.randrange(game_size - 1) + 1
         y_coordinate = random.randrange(game_size - 1) + 1
         direction = random.randrange(2)
@@ -102,7 +111,7 @@ def set_ship(ship_length):
                 if battlefield_copy[y_coordinate][x_coordinate + x] != "#":
                     all_valid = False
                     break
-            if all_valid == True:
+            if all_valid:
                 for z in range(ship_length):
                     battlefield_copy[y_coordinate][x_coordinate + z] = "X"
                 ship_setting = False
@@ -113,7 +122,7 @@ def set_ship(ship_length):
                 if battlefield_copy[y_coordinate + x][x_coordinate] != "#":
                     all_valid = False
                     break
-            if all_valid == True:
+            if all_valid:
                 for z in range(ship_length):
                     battlefield_copy[y_coordinate + z][x_coordinate] = "X"
                 ship_setting = False
