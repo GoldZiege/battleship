@@ -2,11 +2,12 @@ import random
 from copy import deepcopy
 import os
 
+# Global variables
 battlefield = []
 battlefield_copy = []
 game_size = 7
 
-# taken from https://www.delftstack.com/howto/python/python-clear-console/
+# clearConsole() was taken from https://www.delftstack.com/howto/python/python-clear-console/
 def clearConsole():
     """
     Clears the screen
@@ -32,7 +33,7 @@ def create_welcome_screen():
                                                  | |    
                                                  |_|   
         """)
-        option = input("Enter 'e' for explanation or 'g' to start the game:\n")
+        option = input("Enter 'e' for explanation or 'g' to start the game:\n").lower()
         if option == "e":
             clearConsole()
             explanation()
@@ -41,7 +42,8 @@ def create_welcome_screen():
             clearConsole()
             break
         else:
-            clearConsole()        
+            clearConsole()
+            print("Please enter either 'e' or 'g' to move on.")        
         
 def explanation():
     """
@@ -67,7 +69,12 @@ def explanation():
 
     Good luck.
     """)
-    input("Press Enter to go back to start screen.\n")
+    press_enter = input("Press Enter to go back to start screen.\n")
+    if press_enter:
+        clearConsole()
+        print("Please press the Enter key to move on.")
+        explanation()
+            
 
 def create_battlefield(length):
     """
@@ -138,7 +145,7 @@ def player_turn():
     while turn > 0:
         print(f"You have {turn} shots left.")
         player_input = [*input("Enter your target coordinates:\n")]
-        if not player_input or len(player_input) > 2:
+        if not player_input or len(player_input) != 2:
             print("Please enter valid coordinates (e.g. B2)")
             continue
         else:
@@ -190,13 +197,13 @@ def main():
         set_ship(2)
         player_turn()
         while True:
-            option = input("Enter 'g' to start new game or 'e' to exit:\n")
+            option = input("Enter 'g' to start new game or 'e' to exit:\n").lower()
             if option == "g":
                 clearConsole()
                 break
             elif option == "e":
-                game_running = False
-                break
+                clearConsole()
+                main()
             else:
                 print("please enter either 'g' or 'e'")
 
