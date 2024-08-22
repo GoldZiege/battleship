@@ -7,7 +7,7 @@ battlefield = []
 battlefield_copy = []
 game_size = 7
 
-# clearConsole() was taken from https://www.delftstack.com/howto/python/python-clear-console/
+# taken from https://www.delftstack.com/howto/python/python-clear-console/
 def clearConsole():
     """
     Clears the screen
@@ -24,14 +24,14 @@ def create_welcome_screen():
     welcome_screen = True
     while welcome_screen:
         print("""
-          ____        _   _   _           _     _       
-         |  _ \      | | | | | |         | |   (_)      
-         | |_) | __ _| |_| |_| | ___  ___| |__  _ _ __  
-         |  _ < / _` | __| __| |/ _ \/ __| '_ \| | '_ \ 
-         | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) |
-         |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/ 
-                                                 | |    
-                                                 |_|   
+          ____        _   _   _           _     _
+         |  _ \\      | | | | | |         | |   (_)
+         | |_) | __ _| |_| |_| | ___  ___| |__  _ _ __
+         |  _ < / _` | __| __| |/ _ \\/ __| '_ \\| | '_ \\
+         | |_) | (_| | |_| |_| |  __/\\__ \\ | | | | |_) |
+         |____/ \\__,_|\\__|\\__|_|\\___||___/_| |_|_| .__/
+                                                 | |
+                                                 |_|
         """)
         option = input("Enter 'e' for explanation or 'g' to start the game:\n").lower()
         if option == "e":
