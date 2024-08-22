@@ -185,6 +185,9 @@ def player_turn():
 
     if turn == 0:
         print("You are out of ammuniton. You lose.")
+        print("Here is where the ships were:")
+        for item in battlefield_copy:
+                print(*item)
 
 def main():
     """
