@@ -161,6 +161,8 @@ def player_turn():
                             battlefield[y_coordinate][x_coordinate] = "X"
                             hits += 1
                             if hits >= 9:
+                                for item in battlefield:
+                                    print(*item)
                                 print("Congratulations. You sank all ships!")
                                 print("You Win!")
                                 break
