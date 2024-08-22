@@ -7,6 +7,7 @@ battlefield = []
 battlefield_copy = []
 game_size = 7
 
+
 # taken from https://www.delftstack.com/howto/python/python-clear-console/
 def clearConsole():
     """
@@ -16,6 +17,7 @@ def clearConsole():
     if os.name in ("nt", "dos"):  # If Machine is running on Windows, use cls
         command = "cls"
     os.system(command)
+
 
 def create_welcome_screen():
     """
@@ -33,7 +35,8 @@ def create_welcome_screen():
                                                  | |
                                                  |_|
         """)
-        option = input("Enter 'e' for explanation or 'g' to start the game:\n").lower()
+        option = input("Enter 'e' for explanation or \
+            'g' to start the game:\n").lower()
         if option == "e":
             clearConsole()
             explanation()
@@ -43,8 +46,9 @@ def create_welcome_screen():
             break
         else:
             clearConsole()
-            print("Please enter either 'e' or 'g' to move on.")        
-        
+            print("Please enter either 'e' or 'g' to move on.")
+
+
 def explanation():
     """
     Puts explanation text on screen
@@ -60,11 +64,11 @@ def explanation():
     Submarine with length 3
     Destroyer with length 2
 
-    To fulfill your task you have 18 missiles to shoot at 
-    your targets. Simply enter target coordinates in the 
+    To fulfill your task you have 18 missiles to shoot at
+    your targets. Simply enter target coordinates in the
     form of a letter plus a number (e.g. A3).
 
-    Sink all your targets and you win. Run out of ammunition 
+    Sink all your targets and you win. Run out of ammunition
     and you lose.
 
     Good luck.
@@ -74,7 +78,7 @@ def explanation():
         clearConsole()
         print("Please press the Enter key to move on.")
         explanation()
-            
+
 
 def create_battlefield(length):
     """
@@ -99,6 +103,7 @@ def create_battlefield(length):
 
     for item in battlefield:
         print(*item)
+
 
 def set_ship(ship_length):
     """
@@ -134,6 +139,7 @@ def set_ship(ship_length):
                     battlefield_copy[y_coordinate + z][x_coordinate] = "X"
                 ship_setting = False
 
+
 def player_turn():
     """
     Takes in the players coordinates, validates them and
@@ -157,7 +163,7 @@ def player_turn():
                     if y_coordinate < game_size and y_coordinate >= 1:
                         if battlefield_copy[y_coordinate][x_coordinate] == "X":
                             clearConsole()
-                            print("It's a hit!" )
+                            print("It's a hit!")
                             battlefield[y_coordinate][x_coordinate] = "X"
                             hits += 1
                             if hits >= 9:
@@ -187,7 +193,8 @@ def player_turn():
         print("You are out of ammuniton. You lose.")
         print("Here is where the ships were:")
         for item in battlefield_copy:
-                print(*item)
+            print(*item)
+
 
 def main():
     """
@@ -202,7 +209,8 @@ def main():
         set_ship(2)
         player_turn()
         while True:
-            option = input("Enter 'g' to start new game or 'e' to exit:\n").lower()
+            option = input("Enter 'g' to start new game or 'e' to exit:\n")\
+                .lower()
             if option == "g":
                 clearConsole()
                 break
@@ -211,5 +219,6 @@ def main():
                 main()
             else:
                 print("please enter either 'g' or 'e'")
+
 
 main()
