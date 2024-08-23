@@ -37,7 +37,7 @@ def create_welcome_screen():
                                                  |_|
         """)
         option = input("Enter 'e' for explanation or \
-            'g' to start the game:\n").lower()
+'g' to start the game:\n").lower()
         if option == "e":
             clearConsole()
             explanation()
