@@ -21,7 +21,8 @@ def clearConsole():
 
 def create_welcome_screen():
     """
-    Shows the welcome screen
+    Shows the welcome screen and leads the player
+    either to the game or an explanation of the game
     """
     welcome_screen = True
     while welcome_screen:
@@ -82,7 +83,8 @@ def explanation():
 
 def create_battlefield(length):
     """
-    Creates the game grid.
+    Creates the game grid by creating a list of lists
+    and printing the lists content to the console.
     """
     global battlefield
     global battlefield_copy
@@ -107,7 +109,9 @@ def create_battlefield(length):
 
 def set_ship(ship_length):
     """
-    Sets a ship with the size of ship_length on the game grid.
+    Sets a ship with the size of ship_length on the game grid. And makes 
+    checks so the ship won't go over the edge of the game grid and is not at 
+    the same spot as another ship.
     """
     global battlefield_copy
     ship_setting = True
@@ -142,8 +146,10 @@ def set_ship(ship_length):
 
 def player_turn():
     """
-    Takes in the players coordinates, validates them and
-    checks wether the shot hits or misses.
+    Takes in the players coordinates, validates them via several 'if'
+    and 'try' statements. Then it compares the coordinates to a copy of
+    the game grid to check wether the shot hits a ship or misses. At the end
+    it tells the player when the game is over.
     """
     global battlefield
     turn = 18
@@ -198,7 +204,8 @@ def player_turn():
 
 def main():
     """
-    Run all programm functions
+    Run all programm functions and loops back to a new game or the
+    welcome screen on player input.
     """
     game_running = True
     create_welcome_screen()
