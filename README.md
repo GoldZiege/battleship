@@ -59,7 +59,9 @@ The app turns battleships into a one sided game where you get all the fun of sho
 - Giving the user the possibility to choose the grid size, the amount of ships and the amount of ammunition
     - That way the user can individually set their difficulty at their discretion
 
+## Data Model
 
+![Flowchart of the app](docs/ablauf.jpg)
 
 ## Deployment
 - https://dashboard.heroku.com/apps
