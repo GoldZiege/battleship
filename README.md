@@ -82,17 +82,17 @@ I performed manual testing throughout this project in the following ways:
     - Both the Battlefield list as well as the battlefield_copy changed when one of them was changed.
     - Solution: Using the deepcopy method from the copy library to copy the battlefield list fixed the problem.
 
-### Validator
+#### Validator
 Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found that were easy to fix by deleting the white space. Other than that no errors were found.
 
 
 ## Deployment
-- https://dashboard.heroku.com/apps
-- click new at top of screen --> create new app
+- start on https://dashboard.heroku.com/apps
+- click new at top of screen and choose "create new app"
 - fill in a name and choose a region
 - click create app 
 - go to the settings tab
-- under config vars click on reveal config vars
+- under config vars click on "reveal config vars"
 - add a config var with key PORT and value 8000
 - under buildpacks
 - add the buildpacks python and nodejs in this order
@@ -104,3 +104,14 @@ Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found tha
 - under automatic deploys choose enable automatic deploys
 - under manual deploy choose the branch from wich to deploy and click deploy branch
 - click on view to get to the deployed site
+
+## Credits
+- The flowchart was made with [draw.io](https://app.diagrams.net/)
+- For the welcome screen ascii art [patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used
+- A tutorial on the ord() and chr() function from [digitalocean.com](https://www.digitalocean.com/community/tutorials/python-ord-chr) was used
+- The unpack(*) method was found on [geeksforgeeks.org](https://www.geeksforgeeks.org/python-split-string-into-list-of-characters/)
+- The hint to use the copy libraries deepcopy method was found on [stackoverflow.com](https://stackoverflow.com/questions/2612802/how-do-i-clone-a-list-so-that-it-doesnt-change-unexpectedly-after-assignment)
+- The clearConsole function was taken from [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
+- Tips on how to break up long lines of code in python were found on [pythonmorsels.com](https://www.pythonmorsels.com/breaking-long-lines-code-python/)
+- [w3schools.com](https://www.w3schools.com/python/) was used to answer general questions on python functions and methods
+- Special thanks to my mentor David Bowers whose tips were very helpful in development of this app
