@@ -109,8 +109,8 @@ def create_battlefield(length):
 
 def set_ship(ship_length):
     """
-    Sets a ship with the size of ship_length on the game grid. And makes 
-    checks so the ship won't go over the edge of the game grid and is not at 
+    Sets a ship with the size of ship_length on the game grid. And makes
+    checks so the ship won't go over the edge of the game grid and is not at
     the same spot as another ship.
     """
     global battlefield_copy

@@ -63,6 +63,29 @@ The app turns battleships into a one sided game where you get all the fun of sho
 
 ![Flowchart of the app](docs/ablauf.jpg)
 
+## Testing
+I performed manual testing throughout this project in the following ways:
+- I passed my code through a PEP8 linter to confirm there is no problems with the code
+- I have tested all inputs with strings where integers are expected, integers where strings are expected, empty strings, strings that are longer than necessary and strings that are to short
+- Throughout development I tested the game in the Gitpod terminal and after deployment to Heroku in the Code Institute terminal template as well.
+
+### Bugs
+#### Bug 1:
+    - Issue: The game grid was empty when printed to the console.
+    - Solution: I forgot to use the global keyword for the battlefield and the battlefield_copy variables. So I added those to fix it.
+
+#### Bug 2:
+    - Issue: In set_ship function ships could reach over the border of the game grid and cause an error.
+    - Solution: Added an if Statement that checks whether the boat is to Long for the grid starting at the first x/y coordinate.
+
+#### Bug 3:
+    - Both the Battlefield list as well as the battlefield_copy changed when one of them was changed.
+    - Solution: Using the deepcopy method from the copy library to copy the battlefield list fixed the problem.
+
+### Validator
+Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found that were easy to fix by deleting the white space. Other than that no errors were found.
+
+
 ## Deployment
 - https://dashboard.heroku.com/apps
 - click new at top of screen --> create new app
