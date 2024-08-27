@@ -71,16 +71,16 @@ I performed manual testing throughout this project in the following ways:
 
 ### Bugs
 #### Bug 1:
-    - Issue: The game grid was empty when printed to the console.
-    - Solution: I forgot to use the global keyword for the battlefield and the battlefield_copy variables. So I added those to fix it.
+- Issue: The game grid was empty when printed to the console.
+- Solution: I forgot to use the global keyword for the battlefield and the battlefield_copy variables. So I added those to fix it.
 
 #### Bug 2:
-    - Issue: In set_ship function ships could reach over the border of the game grid and cause an error.
-    - Solution: Added an if Statement that checks whether the boat is to Long for the grid starting at the first x/y coordinate.
+- Issue: In set_ship function ships could reach over the border of the game grid and cause an error.
+- Solution: Added an if Statement that checks whether the boat is to Long for the grid starting at the first x/y coordinate.
 
 #### Bug 3:
-    - Both the Battlefield list as well as the battlefield_copy changed when one of them was changed.
-    - Solution: Using the deepcopy method from the copy library to copy the battlefield list fixed the problem.
+- Both the Battlefield list as well as the battlefield_copy changed when one of them was changed.
+- Solution: Using the deepcopy method from the copy library to copy the battlefield list fixed the problem.
 
 #### Validator
 Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found that were easy to fix by deleting the white space. Other than that no errors were found.
