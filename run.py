@@ -5,6 +5,7 @@ import os
 # Global variables
 battlefield = []
 battlefield_copy = []
+previous_choices = []
 game_size = 7
 
 
@@ -75,10 +76,7 @@ def explanation():
     Good luck.
     """)
     press_enter = input("Press Enter to go back to start screen.\n")
-    if press_enter:
-        clearConsole()
-        print("Please press the Enter key to move on.")
-        explanation()
+    clearConsole()
 
 
 def create_battlefield(length):
@@ -152,9 +150,11 @@ def player_turn():
     it tells the player when the game is over.
     """
     global battlefield
+    global previous_choices
     turn = 18
     hits = 0
     while turn > 0:
+        double_choice = False
         print(f"You have {turn} shots left.")
         player_input = [*input("Enter your target coordinates:\n")]
         if not player_input or len(player_input) != 2:
@@ -167,6 +167,14 @@ def player_turn():
                 try:
                     y_coordinate = int(player_input[1])
                     if y_coordinate < game_size and y_coordinate >= 1:
+                        for choice in previous_choices:
+                            if str(x_coordinate)+str(y_coordinate) == choice:
+                                double_choice = True
+                                break
+                        if double_choice:
+                            print("These coordinates have already been used.")
+                            continue
+                        previous_choices.append(str(x_coordinate)+str(y_coordinate))
                         if battlefield_copy[y_coordinate][x_coordinate] == "X":
                             clearConsole()
                             print("It's a hit!")
