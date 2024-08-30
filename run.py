@@ -5,7 +5,6 @@ import os
 # Global variables
 battlefield = []
 battlefield_copy = []
-previous_choices = []
 game_size = 7
 
 
@@ -151,7 +150,7 @@ def player_turn():
     - it tells the player when the game is over.
     """
     global battlefield
-    global previous_choices
+    previous_choices = []
     turn = 18
     hits = 0
     while turn > 0:

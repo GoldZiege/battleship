@@ -1,6 +1,6 @@
 # Battleship
 
-This program is a modified version of the classic board game battleships in which you atke the role of a battleship commander that has to attack enemy ships with limited ammunition.
+This program is a modified version of the classic board game battleships in which you take the role of a battleship commander that has to attack enemy ships with limited ammunition.
 
 The app turns battleships into a one sided game where you get all the fun of shooting at enemy ships without having to worry about your own ships.
 
@@ -11,6 +11,7 @@ The app turns battleships into a one sided game where you get all the fun of sho
 - At the start the user decides to jump right into the game or get an explanation first
 - When the game starts the player sees the game grid without being able to see where the enemy ships are.
 - Each turn the player shots at a chosen coordinate.
+- There are three ships on the board.
 - Every shot gets marked on the game grid. Hits are marked with an 'X' and misses are marked with an 'O'.
 - If the player succeeds in sinking all enemy ships within 18 turns they win. Otherwise they are out of ammunition and lose the game.
 
@@ -58,8 +59,8 @@ The app turns battleships into a one sided game where you get all the fun of sho
     - That way the user can individually set their difficulty at their discretion
 
 ## Data Model
+As my model I decided to make a functional base program. The game board is saved as a list of lists in a global variable and in that way it is passed between the different functions. 
 
-![Flowchart of the app](docs/ablauf.jpg)
 
 ## Testing
 I performed manual testing throughout this project in the following ways:
