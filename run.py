@@ -107,9 +107,9 @@ def create_battlefield(length):
 
 def set_ship(ship_length):
     """
-    Sets a ship with the size of ship_length on the game grid. And makes
-    checks so the ship won't go over the edge of the game grid and is not at
-    the same spot as another ship.
+    - Sets a ship with the size of ship_length on the game grid.
+    - makes checks so the ship won't go over the edge of
+      the game grid and is not at the same spot as another ship.
     """
     global battlefield_copy
     ship_setting = True
@@ -144,10 +144,11 @@ def set_ship(ship_length):
 
 def player_turn():
     """
-    Takes in the players coordinates, validates them via several 'if'
-    and 'try' statements. Then it compares the coordinates to a copy of
-    the game grid to check wether the shot hits a ship or misses. At the end
-    it tells the player when the game is over.
+    - Takes in the players coordinates, validates them via several 'if'
+      and 'try' statements. 
+    - compares the coordinates to a copy of the game grid to check
+      wether the shot hits a ship or misses.
+    - it tells the player when the game is over.
     """
     global battlefield
     global previous_choices
@@ -174,7 +175,8 @@ def player_turn():
                         if double_choice:
                             print("These coordinates have already been used.")
                             continue
-                        previous_choices.append(str(x_coordinate)+str(y_coordinate))
+                        previous_choices.append(
+                            str(x_coordinate)+str(y_coordinate))
                         if battlefield_copy[y_coordinate][x_coordinate] == "X":
                             clearConsole()
                             print("It's a hit!")

@@ -54,8 +54,6 @@ The app turns battleships into a one sided game where you get all the fun of sho
 ### Future Features
 - Giving the user feedback when a ship is destroyed
     - Right now the user has to waste valuable shots to confirm a ships length
-- Making it impossible to target the same coordinate twice
-    - Right now it is possible to hit the same target repeatedly to cheat the game an win easily
 - Giving the user the possibility to choose the grid size, the amount of ships and the amount of ammunition
     - That way the user can individually set their difficulty at their discretion
 
