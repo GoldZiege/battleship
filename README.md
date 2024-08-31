@@ -64,7 +64,9 @@ The app turns battleships into a one-sided game where you get all the fun of sho
 ## Data Model
 As my model, I decided to make a functional base program. The game board is saved as a 
 list of lists in a global variable and in that way, it is passed between the different functions. 
+
 There are two copies of the game board variable. One is the board as shown to the player and the other one is used to save the ships' positions.
+
 The Data flows from the create_battlefield function where the battlefield list and its copy are filled with content to the set_ship function where the ships are set on the battlefield_copy. Afterwards, the variables are used by the player_turn function which allows the user to take action and attack different spots on the battlefield list.
 
 
