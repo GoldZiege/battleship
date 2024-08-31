@@ -144,7 +144,7 @@ def set_ship(ship_length):
 def player_turn():
     """
     - Takes in the players coordinates, validates them via several 'if'
-      and 'try' statements. 
+      and 'try' statements.
     - compares the coordinates to a copy of the game grid to check
       wether the shot hits a ship or misses.
     - it tells the player when the game is over.

@@ -1,10 +1,12 @@
 # Battleship
 
-This program is a modified version of the classic board game battleships in which you take the role of a battleship commander that has to attack enemy ships with limited ammunition.
+This program is a modified version of the classic board game battleships in which you take the role of a battleship commander who has to attack enemy ships with limited ammunition.
 
-The app turns battleships into a one sided game where you get all the fun of shooting at enemy ships without having to worry about your own ships.
+The app turns battleships into a one-sided game where you get all the fun of shooting at enemy ships without having to worry about your own ships.
 
 [click here for the deployed project](https://battleship-commander-b2b519a74b77.herokuapp.com/)
+
+![Screenshot of the welcome screen](docs/welcome-screen.png)
 
 ## How to play
 
@@ -36,14 +38,15 @@ The app turns battleships into a one sided game where you get all the fun of sho
 
 ![Screenshot of the game grid](docs/game-grid.png)
 
-- Input validation and error-checking:
-    - The user cannot enter coordinates outside the game-grid
-    - The user cannot enter a string longer or shorter than two characters
-    - The user cannot enter an empty string
-    - The user can user upper or lower case for letters
+### Input validation and error-checking:
+- The user cannot enter coordinates outside the game-grid
+- The user cannot enter a string longer or shorter than two characters
+- The user cannot enter an empty string
+- The user can user upper or lower case for letters
 
 ![Screenshot of error message](docs/input-validation.png)
 
+### Game ending
 - If the player looses the game they get to see where the ships were placed.
 
 ![Screenshot of a lost game](docs/lose-screen.png)
@@ -59,7 +62,10 @@ The app turns battleships into a one sided game where you get all the fun of sho
     - That way the user can individually set their difficulty at their discretion
 
 ## Data Model
-As my model I decided to make a functional base program. The game board is saved as a list of lists in a global variable and in that way it is passed between the different functions. 
+As my model, I decided to make a functional base program. The game board is saved as a 
+list of lists in a global variable and in that way, it is passed between the different functions. 
+There are two copies of the game board variable. One is the board as shown to the player and the other one is used to save the ships' positions.
+The Data flows from the create_battlefield function where the battlefield list and its copy are filled with content to the set_ship function where the ships are set on the battlefield_copy. Afterwards, the variables are used by the player_turn function which allows the user to take action and attack different spots on the battlefield list.
 
 
 ## Testing
@@ -81,28 +87,31 @@ I performed manual testing throughout this project in the following ways:
 - Both the Battlefield list as well as the battlefield_copy changed when one of them was changed.
 - Solution: Using the deepcopy method from the copy library to copy the battlefield list fixed the problem.
 
+#### Remaining bugs
+- No bugs remaining
+
 #### Validator
 Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found that were easy to fix by deleting the white space. Other than that no errors were found.
 
 
 ## Deployment
-- start on https://dashboard.heroku.com/apps
-- click new at top of screen and choose "create new app"
-- fill in a name and choose a region
-- click create app 
-- go to the settings tab
-- under config vars click on "reveal config vars"
-- add a config var with key PORT and value 8000
-- under buildpacks
-- add the buildpacks python and nodejs in this order
-- go to the Deploy tab
-- under deployment method choose GitHub 
-- confirm to connect to github
-- use the searchbar that appears to search for your repository
-- click connect on the right repository 
-- under automatic deploys choose enable automatic deploys
-- under manual deploy choose the branch from wich to deploy and click deploy branch
-- click on view to get to the deployed site
+1. start on https://dashboard.heroku.com/apps
+2. click new at top of screen and choose "create new app"
+3. fill in a name and choose a region
+4. click create app 
+5. go to the settings tab
+6. under config vars click on "reveal config vars"
+7. add a config var with key PORT and value 8000
+8. under buildpacks
+9. add the buildpacks python and nodejs in this order
+10. go to the Deploy tab
+11. under deployment method choose GitHub 
+12. confirm to connect to github
+13. use the searchbar that appears to search for your repository
+14. click connect on the right repository 
+15. under automatic deploys choose enable automatic deploys
+16. under manual deploy choose the branch from wich to deploy and click deploy branch
+17. click on view to get to the deployed site
 
 ## Credits
 - The flowchart was made with [draw.io](https://app.diagrams.net/)
@@ -113,4 +122,5 @@ Using https://pep8ci.herokuapp.com/ a bunch of white space errors were found tha
 - The clearConsole function was taken from [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
 - Tips on how to break up long lines of code in python were found on [pythonmorsels.com](https://www.pythonmorsels.com/breaking-long-lines-code-python/)
 - [w3schools.com](https://www.w3schools.com/python/) was used to answer general questions on python functions and methods
+- Code Institute for the deployment terminal
 - Special thanks to my mentor David Bowers whose tips were very helpful in development of this app
